@@ -88,7 +88,7 @@ figure('Color',[1 0.98 0.95])
 subplot(4,4,1)
 hold on
 box on
-xlim([pars.whenstart/1e6 pars.whenend/1e6])
+xlim([-70 pars.whenend/1e6])
 ylim([0 2.5])
 xlabel('Time (Ma)')
 ylabel('Relative forcing')
@@ -112,7 +112,7 @@ title('Forcings')
 subplot(4,4,2)
 hold on
 box on
-xlim([pars.whenstart/1e6 pars.whenend/1e6])
+xlim([-70 pars.whenend/1e6])
 xlabel('Time (Ma)')
 ylabel('Flux (mol/yr)')
 %%%% plot this model
@@ -132,7 +132,7 @@ title('C_{org} fluxes')
 subplot(4,4,3)
 hold on
 box on
-xlim([pars.whenstart/1e6 pars.whenend/1e6])
+xlim([-70 pars.whenend/1e6])
 xlabel('Time (Ma)')
 ylabel('Flux (mol/yr)')
 %%%% plot this model
@@ -152,7 +152,7 @@ title('C_{carb} fluxes')
 subplot(4,4,4)
 hold on
 box on
-xlim([pars.whenstart/1e6 pars.whenend/1e6])
+xlim([-70 pars.whenend/1e6])
 xlabel('Time (Ma)')
 % ylim([0 5e12])
 ylabel('Fluxes (mol/yr)')
@@ -177,7 +177,7 @@ title('S fluxes')
 subplot(4,4,5)
 hold on
 box on
-xlim([pars.whenstart/1e6 pars.whenend/1e6])
+xlim([-70 pars.whenend/1e6])
 xlabel('Time (Ma)')
 ylabel('Relative size')
 %%%% plot this model
@@ -195,7 +195,7 @@ title('C reservoirs')
 subplot(4,4,6)
 hold on
 box on
-xlim([pars.whenstart/1e6 pars.whenend/1e6])
+xlim([-70 pars.whenend/1e6])
 xlabel('Time (Ma)')
 ylabel('Relative size')
 %%%% plot this model
@@ -211,7 +211,7 @@ title('S reservoirs')
 subplot(4,4,7)
 hold on
 box on
-xlim([pars.whenstart/1e6 pars.whenend/1e6])
+xlim([-70 pars.whenend/1e6])
 ylim([0 3])
 xlabel('Time (Ma)')
 ylabel('Relative size')
@@ -228,7 +228,7 @@ title('Nutrient reservoirs')
 subplot(4,4,8)
 hold on
 box on
-xlim([pars.whenstart/1e6 pars.whenend/1e6])
+xlim([-70 pars.whenend/1e6])
 xlabel('Time (Ma)')
 ylabel('f_{org}, f_{py}')
 %%%% plot this model
@@ -240,7 +240,7 @@ plot(state.time_myr, state.mpsb ./ (state.mpsb + state.mgsb),'m')
 subplot(4,4,9)
 hold on
 box on
-xlim([pars.whenstart/1e6 pars.whenend/1e6])
+xlim([-70 pars.whenend/1e6])
 xlabel('Time (Ma)')
 ylabel('\delta^{13}C_{carb}')
 %%%% plot data comparison
@@ -252,7 +252,7 @@ plot(state.time_myr,state.delta_mccb,'k')
 subplot(4,4,10)
 hold on
 box on
-xlim([pars.whenstart/1e6 pars.whenend/1e6])
+xlim([-70 pars.whenend/1e6])
 xlabel('Time (Ma)')
 ylabel('\delta^{34}S_{sw}')
 %%%% plot data comparison
@@ -264,7 +264,7 @@ plot(state.time_myr,state.d34s_S,'k')
 subplot(4,4,11)
 hold on
 box on
-xlim([pars.whenstart/1e6 pars.whenend/1e6])
+xlim([-70 pars.whenend/1e6])
 ylim([0.706 0.71])
 xlabel('Time (Ma)')
 ylabel('^{87}Sr/^{86}Sr seawater')
@@ -277,7 +277,7 @@ plot(state.time_myr,state.delta_OSr,'k')
 subplot(4,4,12)
 hold on
 box on
-xlim([pars.whenstart/1e6 pars.whenend/1e6])
+xlim([-70 pars.whenend/1e6])
 xlabel('Time (Ma)')
 ylabel('Marine SO_{4} (mM)')
 %%%% plot algeo data window comparison
@@ -295,7 +295,7 @@ plot(state.time_myr,(state.S./pars.S0)*28,'k')
 subplot(4,4,13)
 hold on
 box on
-xlim([pars.whenstart/1e6 pars.whenend/1e6])
+xlim([-70 pars.whenend/1e6])
 xlabel('Time (Ma)')
 ylabel('Atmospheric O_{2} (%)')
 %%%% plot data comparison
@@ -310,11 +310,14 @@ subplot(4,4,14)
 set(gca, 'YScale', 'log')
 hold on
 box on
-xlim([pars.whenstart/1e6 pars.whenend/1e6])
+xlim([-70 pars.whenend/1e6])
 ylim([100 10000])
 xlabel('Time (Ma)')
 ylabel('Atmospheric CO_{2} (ppm)')
-%%%% plot data comparison
+
+
+
+%%%% plot data comparison (REPLACE THIS)
 %%%% paleosol
 % errorbar(paleosol_age,paleosol_co2,paleosol_low,paleosol_high,'color',[0.4 0.7 0.7],'linestyle','none')
 plot(paleosol_age, paleosol_co2,'.','markerfacecolor',pc1,'markeredgecolor',pc1)
@@ -333,6 +336,8 @@ plot(liverwort_age, liverwort_co2,'.','markerfacecolor',pc5,'markeredgecolor',pc
 %%%% phytane
 % errorbar(phytane_age,phytane_co2,phytane_low,phytane_high,'color',[0.7 0.7 0.4],'linestyle','none')
 plot(phytane_age, phytane_co2,'.','markerfacecolor',pc6,'markeredgecolor',pc6)
+
+
 %%%% plot this model
 plot(state.time_myr,state.RCO2.*280,'k')
 
@@ -342,13 +347,18 @@ plot(state.time_myr,state.RCO2.*280,'k')
 subplot(4,4,15)
 hold on
 box on
-xlim([pars.whenstart/1e6 pars.whenend/1e6])
+xlim([-70 pars.whenend/1e6])
 ylim([5 40])
 xlabel('Time (Ma)')
 ylabel('GAST (C)')
-%%%% plot data comparison
+
+
+%%%% plot data comparison (REPLACE THIS)
 % patch(T_x,T_y,pc1,'edgecolor','none')
 plot(Scotese_2021_age,Scotese_2021_GAT,'color',pc1)
+
+
+
 %%%% plot this model
 plot(state.time_myr,state.tempC,'k')
 plot(state.time_myr,state.SAT_equator,'r')
@@ -358,7 +368,7 @@ plot(state.time_myr,state.SAT_equator,'r')
 subplot(4,4,16)
 hold on
 box on
-xlim([pars.whenstart/1e6 pars.whenend/1e6])
+xlim([-70 pars.whenend/1e6])
 xlabel('Time (Ma)')
 ylabel('Ice line')
 %%%% plot iceline proxy
