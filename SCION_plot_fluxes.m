@@ -70,14 +70,16 @@ pc3 = [82 144 170]./255 ;
 pc4 = [88 119 149]./255 ;
 pc5 = [89 96 125]./255 ;
 pc6 = [82 56 100]./255 ;
-
+pc7 = [230 126 34]./255 ;   
+pc8 = [192 57 43]./255 ; 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%   Plot global variables   %%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%% load geochem data
-load('data\geochem_data_2020.mat')
+%%%% load('data\geochem_data_2020.mat')
+load('data\geochem_data_2023co2.mat')
 load('data\Scotese_GAT_2021.mat')
 
 %%%%%%% make figure
@@ -318,24 +320,50 @@ ylabel('Atmospheric CO_{2} (ppm)')
 
 
 %%%% plot data comparison (REPLACE THIS)
-%%%% paleosol
-% errorbar(paleosol_age,paleosol_co2,paleosol_low,paleosol_high,'color',[0.4 0.7 0.7],'linestyle','none')
-plot(paleosol_age, paleosol_co2,'.','markerfacecolor',pc1,'markeredgecolor',pc1)
-%%%% alkenone
-% errorbar(alkenone_age,alkenone_co2,alkenone_low,alkenone_high,'color',[0.4 0.7 0.4],'linestyle','none')
-plot(alkenone_age, alkenone_co2,'.','markerfacecolor',pc2,'markeredgecolor',pc2)
+% % %%%% paleosol
+% % % errorbar(paleosol_age,paleosol_co2,paleosol_low,paleosol_high,'color',[0.4 0.7 0.7],'linestyle','none')
+% % plot(paleosol_age, paleosol_co2,'.','markerfacecolor',pc1,'markeredgecolor',pc1)
+% % %%%% alkenone
+% % % errorbar(alkenone_age,alkenone_co2,alkenone_low,alkenone_high,'color',[0.4 0.7 0.4],'linestyle','none')
+% % plot(alkenone_age, alkenone_co2,'.','markerfacecolor',pc2,'markeredgecolor',pc2)
+% % %%%% boron
+% % % errorbar(boron_age,boron_co2,boron_low,boron_high,'color',[0.7 0.4 0.4],'linestyle','none')
+% % plot(boron_age, boron_co2,'.','markerfacecolor',pc3,'markeredgecolor',pc3)
+% % %%%% stomata
+% % % errorbar(stomata_age,stomata_co2,stomata_low,stomata_high,'color',[0.7 0.7 0.4],'linestyle','none')
+% % plot(stomata_age, stomata_co2,'.','markerfacecolor',pc4,'markeredgecolor',pc4)
+% % %%%% liverwort
+% % % errorbar(liverwort_age,liverwort_co2,liverwort_low,liverwort_high,'color',[0.7 0.7 0.4],'linestyle','none')
+% % plot(liverwort_age, liverwort_co2,'.','markerfacecolor',pc5,'markeredgecolor',pc5)
+% % %%%% phytane
+% % % errorbar(phytane_age,phytane_co2,phytane_low,phytane_high,'color',[0.7 0.7 0.4],'linestyle','none')
+% % plot(phytane_age, phytane_co2,'.','markerfacecolor',pc6,'markeredgecolor',pc6)
+
+%%%% plot new co2 published in 2023
 %%%% boron
-% errorbar(boron_age,boron_co2,boron_low,boron_high,'color',[0.7 0.4 0.4],'linestyle','none')
-plot(boron_age, boron_co2,'.','markerfacecolor',pc3,'markeredgecolor',pc3)
+% errorbar(boron_age,boron_co2,boron_low,boron_high,'color',[0.4 0.7 0.7],'linestyle','none')
+plot(boron_age, boron_co2,'.','markerfacecolor',pc1,'markeredgecolor',pc1)
+%%%% landplantd13c
+% errorbar(landplantd13c_age,landplantd13c_co2,landplantd13c_low,landplantd13c_high,'color',[0.4 0.7 0.4],'linestyle','none')
+plot(landplantd13c_age, landplantd13c_co2,'.','markerfacecolor',pc2,'markeredgecolor',pc2)
+%%%% leafgasexange
+% errorbar(leafgasexange_age,leafgasexchange_co2,leafgasexchange_low,leafgasexchange_high,'color',[0.7 0.4 0.4],'linestyle','none')
+plot(leafgasexchange_age, leafgasexchange_co2,'.','markerfacecolor',pc3,'markeredgecolor',pc3)
+%%%% liverworts
+% errorbar(liverwort_age,liverwort_co2,liverwort_low,liverwort_high,'color',[0.7 0.7 0.4],'linestyle','none')
+plot(liverworts_age, liverworts_co2,'.','markerfacecolor',pc4,'markeredgecolor',pc4)
+%%%% nahcolite
+% errorbar(nahcolite_age,nahcolite_co2,nahcolite_low,nahcolite_high,'color',[0.7 0.7 0.4],'linestyle','none')
+plot(nahcolite_age, nahcolite_co2,'.','markerfacecolor',pc5,'markeredgecolor',pc5)
+%%%% paleosols
+plot(paleosols_age, paleosols_co2, '.', 'markerfacecolor', pc6, 'markeredgeColor', pc6)
+%%%% phytoplankton
+plot(phytoplankton_age, phytoplankton_co2, '.', 'markerfacecolor', pc7, 'markeredgeColor', pc7)
 %%%% stomata
 % errorbar(stomata_age,stomata_co2,stomata_low,stomata_high,'color',[0.7 0.7 0.4],'linestyle','none')
-plot(stomata_age, stomata_co2,'.','markerfacecolor',pc4,'markeredgecolor',pc4)
-%%%% liverwort
-% errorbar(liverwort_age,liverwort_co2,liverwort_low,liverwort_high,'color',[0.7 0.7 0.4],'linestyle','none')
-plot(liverwort_age, liverwort_co2,'.','markerfacecolor',pc5,'markeredgecolor',pc5)
-%%%% phytane
-% errorbar(phytane_age,phytane_co2,phytane_low,phytane_high,'color',[0.7 0.7 0.4],'linestyle','none')
-plot(phytane_age, phytane_co2,'.','markerfacecolor',pc6,'markeredgecolor',pc6)
+plot(stomata_age, stomata_co2,'.','markerfacecolor',pc8,'markeredgecolor',pc8)
+
+
 
 
 %%%% plot this model
