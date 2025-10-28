@@ -80,7 +80,8 @@ pc8 = [192 57 43]./255 ;
 %%%% load geochem data
 %%%% load('data\geochem_data_2020.mat')
 load('data\geochem_data_2023co2.mat')
-load('data\Scotese_GAT_2021.mat')
+%%%%load('data\Scotese_GAT_2021.mat')
+load('data\Westerhold_GMST_2020.mat')
 
 %%%%%%% make figure
 figure('Color',[1 0.98 0.95])
@@ -383,7 +384,10 @@ ylabel('GAST (C)')
 
 %%%% plot data comparison (REPLACE THIS)
 % patch(T_x,T_y,pc1,'edgecolor','none')
-plot(Scotese_2021_age,Scotese_2021_GAT,'color',pc1)
+% plot(Scotese_2021_age,Scotese_2021_GAT,'color',pc1)
+
+plot(Westerhold_age, Westerhold_gmst, 'Color', pc1)
+
 
 
 
